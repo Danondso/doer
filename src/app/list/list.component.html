@@ -1,0 +1,19 @@
+<div class="task-content">
+  <mat-card *ngFor="let task of tasks" class="card-container">
+    <mat-card-header>
+      <mat-card-title>
+        <p>{{task.project}}</p>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{task.text}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <div class="container">
+    <button mat-icon-button>
+        <i class="material-icons">add</i>
+    </button>
+  </div>
+</div>
