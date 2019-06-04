@@ -1,5 +1,5 @@
 export interface TaskData {
     project: string;
-    id: number;
+    id?: number;
     text: string;
 }
