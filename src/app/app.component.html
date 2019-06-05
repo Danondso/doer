@@ -1,11 +1,15 @@
-<mat-sidenav-container class="sidnav-container">
+<mat-sidenav-container class="sidnav-container ">
   <mat-sidenav #sidenav mode="side">
     <mat-list>
       <mat-list-item>
-        <button mat-button><a routerLink="./tasks">Tasks</a></button>
+        <a routerLink="/tasks">
+          <button mat-button>Tasks</button>
+        </a>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button><a routerLink="./settings">Settings</a></button>
+        <a routerLink="/settings">
+          <button mat-button>Settings</button>
+        </a>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
