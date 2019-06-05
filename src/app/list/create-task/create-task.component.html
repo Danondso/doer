@@ -1,4 +1,4 @@
-<div *ngIf="showTaskCreateForm" class="task-content">
+<div class="task-content" [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
   <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
     <mat-card>
       <mat-card-header>
