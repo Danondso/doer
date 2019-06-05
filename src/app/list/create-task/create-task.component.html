@@ -1,18 +1,18 @@
 <div class="task-content" [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
   <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
-    <mat-card>
+    <mat-card class="task-create-card">
       <mat-card-header>
         <mat-card-title>
-          <mat-form-field>
-            <input matInput placeholder="" type="text" formControlName="projectName">
+          <mat-form-field class="form-field-wrapper">
+            <input matInput placeholder="Project Name" type="text" formControlName="projectName">
           </mat-form-field>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        <textarea matInput placeholder="Textarea" formControlName="taskDescription"></textarea>
+      <mat-card-content class="form-field-wrapper">
+        <textarea matInput placeholder="Textarea" formControlName="taskDescription" class="text-input-test"></textarea>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button type="submit">CREATE</button>
+        <button mat-button type="submit" class="button-wrapper">CREATE</button>
       </mat-card-actions>
     </mat-card>
   </form>

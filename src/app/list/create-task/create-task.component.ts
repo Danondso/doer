@@ -12,28 +12,22 @@ import { transition, trigger, style, state, animate } from '@angular/animations'
         trigger('showTaskCreateAnimation', [
       // ...
       state('true', style({
-        transition: 'height 0.5s linear',
-        height: '200px',
-        background: 'purple',
-        float: 'center',
+        transition: 'height 1s',
+        height: 'auto',
         margin: 'auto',
         width: '43%',
         padding: '10px'
       })),
       state('false', style({
-        transition: 'height 0.5s linear',
+        transition: 'height 1s',
         height: '0px',
-        background: 'green',
-        float: 'center',
         margin: 'auto',
-        width: '43%'
+        width: '43%',
+        padding: '0px'
       })),
-      transition('true => false', [
+      transition('true <=> false', [
         animate(500)
-      ]),
-      transition('false => true', [
-        animate(500)
-      ]),
+      ])
     ]),
   ],
 })
