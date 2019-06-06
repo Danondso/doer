@@ -1,33 +1,17 @@
-=small-screen
-    width: 1.1rem
-
 =responsive-text()
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap  
     
-.task-create-card
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-    width: 40%
-
 .task-content
     float: 'center',
     margin: 'auto',
     padding: '10px'
-
-.project-title
-    text-overflow: ellipsis
-
-.form-field-wrapper
-    width: 4rem !important
-    font-size: .5rem
-
-.mat-card
-    width: auto !important
-
-@media screen and (min-width: 657px)
-    .form-field-wrapper .button-wrapper
-        +small-screen
+    .task-create-card
+        +responsive-text
+    .form-field-wrapper
+        width: 4rem !important
+        font-size: .5rem
+    .mat-card
+        width: auto !important
     

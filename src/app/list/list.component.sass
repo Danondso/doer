@@ -1,36 +1,27 @@
+@import '../../styles.sass'
+
 .card
     text-align: center
 .container
-    float: center
-    margin: auto
+    +centering
     width: 9%
 
 .card-container
-    float: center
-    margin: auto
+    +centering
     width: 40%
     margin-bottom: 5%
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap  
-
-=responsive-text()
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap     
 
 .task-content
-    float: center
-    margin: auto
+    +centering
     width: 30%
     padding: 10px
 
-.project-name
-    +responsive-text
-
-.task-description
-    +responsive-text
-
-.project-name
+.project-name .task-description .project-name
     +responsive-text
     
+@media screen and (min-width: 657px)
+    .form-field-wrapper .button-wrapper
+        +small-screen
