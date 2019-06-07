@@ -10,12 +10,12 @@
         <mat-card-title>
           <mat-form-field>
 <!-- TODO figure out how to scale the font size for the form.  -->
-            <input matInput placeholder="Project Name" type="text" formControlName="projectName"> 
+            <input matInput placeholder="Project Name" type="text" formControlName="projectName" class="project-name-input"> 
           </mat-form-field>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <input matInput placeholder="What would you like to get done?" formControlName="taskDescription">
+        <input matInput placeholder="What would you like to get done?" formControlName="taskDescription" class="task-description-input">
       </mat-card-content>
       <mat-card-actions class="create-button">
         <button mat-button type="submit">CREATE</button>
