@@ -29,7 +29,7 @@ import { CreateTaskComponent } from './list/create-task/create-task.component';
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],

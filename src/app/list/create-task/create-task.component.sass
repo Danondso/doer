@@ -1,17 +1,30 @@
-=responsive-text()
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap  
+@import '../../../styles.sass'
+@import '../list.component.sass'
     
 .task-content
-    float: 'center',
-    margin: 'auto',
-    padding: '10px'
+    float: center,
+    margin: auto,
     .task-create-card
         +responsive-text
+        text-align: center
     .form-field-wrapper
-        width: 4rem !important
+        width: auto !important
         font-size: .5rem
     .mat-card
         width: auto !important
-    
+
+.card-container
+    width: 50%
+
+.button-wrapper
+    float: center
+
+@media screen and (min-width: 657px)
+    .button-wrapper
+        +small-screen
+    .form-field-wrapper
+        +small-screen
+        font-
+
+.create-button
+    text-align: center

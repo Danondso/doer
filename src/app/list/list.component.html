@@ -1,21 +1,16 @@
-<div class="task-content">
+<section class="task-content">
   <h1 class="mat-display-1">{{tasksTitle}}</h1>
-</div>
-<div class="task-content">
   <mat-card *ngFor="let task of tasks" class="card-container">
     <mat-card-header>
       <mat-card-title class="project-name">
         <p>{{task.project}}</p>
       </mat-card-title>
     </mat-card-header>
-    <mat-card-content >
+    <mat-card-content>
       <p class="task-description">{{task.text}}</p>
     </mat-card-content>
   </mat-card>
-  <div class="container">
-    <button mat-icon-button (click)="this.showTaskCreate=!showTaskCreate">
-      <i class="material-icons">add</i>
-    </button>
-  </div>
+</section>
+<section>
   <app-create-task [showTaskCreateForm]="this.showTaskCreate" (newTask)="addTask($event)"></app-create-task>
-</div>
+</section>

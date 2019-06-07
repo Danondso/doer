@@ -1,19 +1,25 @@
-<div class="task-content" [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
-  <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
-    <mat-card class="task-create-card">
+<section class="button-wrapper task-content">
+  <button mat-icon-button (click)="this.showTaskCreateForm=!showTaskCreate">
+    <i class="material-icons">add</i>
+  </button>
+</section>
+<section [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
+  <mat-card class="card-container">
+    <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
       <mat-card-header>
         <mat-card-title>
-          <mat-form-field class="form-field-wrapper">
-            <input matInput placeholder="Project Name" type="text" formControlName="projectName">
+          <mat-form-field>
+<!-- TODO figure out how to scale the font size for the form.  -->
+            <input matInput placeholder="Project Name" type="text" formControlName="projectName"> 
           </mat-form-field>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content class="form-field-wrapper">
-        <textarea matInput placeholder="Textarea" formControlName="taskDescription" class="text-input-test"></textarea>
+      <mat-card-content>
+        <input matInput placeholder="What would you like to get done?" formControlName="taskDescription">
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button type="submit" class="button-wrapper">CREATE</button>
+      <mat-card-actions class="create-button">
+        <button mat-button type="submit">CREATE</button>
       </mat-card-actions>
-    </mat-card>
-  </form>
-</div>
+    </form>
+  </mat-card>
+</section>
