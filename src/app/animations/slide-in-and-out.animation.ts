@@ -3,37 +3,30 @@ import { transition, trigger, style, state, animate, group } from '@angular/anim
 export const SlideInAndOut = [
     trigger('showTaskCreateAnimation', [
         state('true', style({
-            'max-height': '500px',
-            opacity: '1'
+            'opacity': '1', 'visibility': 'visible'
         })),
         state('false', style({
-            'max-height': '0px',
-            opacity: '0',
+            'opacity': '0', 'visibility': 'hidden'
         })),
         transition('true => false', [group([
-            animate('1ms ease-in-out', style({
-                visibility: 'hidden'
+            animate('400ms ease-in-out', style({
+                'opacity': '0'
             })),
-            animate('300ms ease-in-out', style({
-                'max-height': '0vw',
-                'max-width': '0vh'
+            animate('600ms ease-in-out', style({
+                'max-height': '0px'
             })),
-            animate('800ms ease-in-out', style({
-                opacity: '1'
+            animate('700ms ease-in-out', style({
+                'visibility': 'hidden'
             }))
         ]
         )]),
         transition('false => true', [group([
             animate('1ms ease-in-out', style({
-                visibility: 'visible'
-            })),
-            animate('300ms ease-in-out', style({
-                'max-height': '1000px'
+                'visibility': 'visible'
             })),
             animate('800ms ease-in-out', style({
-                transition: 'height',
-                height: '0px'
-            })),
+                'opacity': '1'
+            }))
         ]
         )])
     ]),

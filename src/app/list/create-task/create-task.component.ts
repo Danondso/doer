@@ -14,6 +14,8 @@ import { SlideInAndOut } from 'src/app/animations/slide-in-and-out.animation';
 export class CreateTaskComponent {
 
   taskCreateForm;
+  projectName: string;
+  taskDescription: string;
 
   @Input() showTaskCreateForm: boolean;
   @Output() newTask: EventEmitter<TaskData> = new EventEmitter<TaskData>();
@@ -29,6 +31,7 @@ export class CreateTaskComponent {
     console.log('FORM SUBMITTED', taskData);
     const task: TaskData = { project: taskData.projectName, text: taskData.taskDescription };
     this.newTask.emit(task);
+    this.taskCreateForm.reset();
   }
 
 }
