@@ -1,5 +1,7 @@
 @import '../../styles.sass'
 @import '../../theme.sass'
+@import '~@angular/material/theming'
+
 
 .card
     text-align: center
@@ -11,10 +13,14 @@
     +responsive-text
     width: 20vw
     margin-bottom: 1.5vh  
+    background: mat-color($my-app-accent)
+    color: $global-font-color
 
 .task-content
     +centering
     padding: 10px
+    background: mat-color($my-app-primary)
+    color: $global-font-color
 
 .task-description
     font-size: 1.5vw

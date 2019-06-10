@@ -1,21 +1,21 @@
 <mat-sidenav-container class="sidnav-container">
-  <mat-sidenav #sidenav mode="side" class="mat-primary">
+  <mat-sidenav #sidenav mode="side" class="sidenav-menu">
     <mat-list>
       <mat-list-item>
         <a routerLink="/tasks">
-          <button mat-raised-button class="mat-accent">Tasks</button>
+          <button mat-raised-button class="mat-primary">Tasks</button>
         </a>
       </mat-list-item>
       <mat-list-item>
         <a routerLink="/settings">
-          <button mat-raised-button class="mat-accent">Settings</button>
+          <button mat-raised-button class="mat-primary">Settings</button>
         </a>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="mat-primary">
-      <button mat-raised-button class="mat-accent" (click)="sidenav.toggle()">Menu
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="mat-accent">
+      <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu
       </button>
     </mat-toolbar>
     <div>

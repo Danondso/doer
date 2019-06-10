@@ -1,26 +1,27 @@
-<section class="show-task-create-form">
-  <button mat-icon-button (click)="this.showTaskCreateForm=!showTaskCreateForm">
-    <i class="material-icons">add</i>
-  </button>
-</section>
-<section [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
-  <mat-card class="card-container">
-    <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
-      <mat-card-header>
-        <mat-card-title>
-          <mat-form-field>
-            <input required matInput placeholder="Project Name" type="text" formControlName="projectName"
-              class="project-name-input project-name">
-          </mat-form-field>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <input required matInput placeholder="What would you like to get done?" formControlName="taskDescription"
-          class="task-description-input task-description">
-      </mat-card-content>
-      <mat-card-actions class="create-button">
-        <button mat-raised-button color="primary" [disabled]="!taskCreateForm.valid" mat-button type="submit">CREATE</button>
-      </mat-card-actions>
-    </form>
-  </mat-card>
+<section class="create-task-content">
+  <section class="show-task-create-form">
+    <button mat-icon-button (click)="this.showTaskCreateForm=!showTaskCreateForm">
+      <i class="material-icons">add</i>
+    </button>
+  </section>
+  <section [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">
+    <mat-card class="card-container">
+      <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-form-field>
+                <input matInput placeholder="Project" type="text" formControlName="projectName" class="text-input">
+            </mat-form-field>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <input required matInput id="project-name" placeholder="Description" formControlName="taskDescription" class="text-input">
+        </mat-card-content>
+        <mat-card-actions class="create-button">
+          <button mat-raised-button class="mat-primary" [disabled]="!taskCreateForm.valid" mat-button
+            type="submit">CREATE</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </section>
 </section>

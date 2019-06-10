@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'theme.sass'    
+
+$global-font-color: white
+
 =responsive-text()
     overflow: hidden
     text-overflow: ellipsis
@@ -10,3 +14,6 @@
 =centering
     float: center
     margin: auto   
+
+.sidenav-content
+    background: mat-color($my-app-primary)
