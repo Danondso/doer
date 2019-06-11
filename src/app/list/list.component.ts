@@ -24,4 +24,16 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteTask() {
+
+  }
+
+  editTask(){
+
+  }
+
+  completeTask(taskData: TaskData) {
+    
+  }
+
 }
