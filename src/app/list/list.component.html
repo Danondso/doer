@@ -11,13 +11,13 @@
       <p class="task-description">{{task.text}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button class="mat-primary" mat-button type="submit">
+      <button mat-button class="mat-primary" mat-button type="submit" (click)="this.completeTask(task.id)">
           <i class="task-buttons material-icons">check</i>
       </button>
       <button mat-button class="mat-primary" mat-button type="submit">
           <i class="task-buttons material-icons">edit</i>
       </button>
-      <button mat-button class="mat-primary" mat-button type="submit">
+      <button mat-button class="mat-primary" mat-button type="submit" (click)="this.deleteTask(task.id)" >
           <i class="task-buttons material-icons">delete</i>
       </button>
     </mat-card-actions>

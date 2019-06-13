@@ -24,16 +24,22 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteTask() {
+  deleteTask(id: number) {
+    for (let index of this.tasks) {
+      if (index.id === id) {
+          console.log("DELETING TASK WITH ID ", id);
+          this.tasks.splice(id);
+          break;
+      }
+    }
+  }
+
+  editTask() {
 
   }
 
-  editTask(){
-
-  }
-
-  completeTask(taskData: TaskData) {
-    
+  completeTask(id: number) {
+      this.deleteTask(id);
   }
 
 }
