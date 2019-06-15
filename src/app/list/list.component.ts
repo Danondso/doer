@@ -29,7 +29,8 @@ export class ListComponent implements OnInit {
     for (const index of this.tasks) {
       if (index.id.equals(id)) {
         console.log('DELETING TASK WITH ID ', id);
-        this.tasks.splice(this.tasks.indexOf(index));
+        this.tasks.splice(this.tasks.indexOf(index), 1);
+        break;
       }
     }
   }
