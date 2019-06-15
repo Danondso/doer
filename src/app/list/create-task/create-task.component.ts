@@ -28,7 +28,7 @@ export class CreateTaskComponent {
 
   onSubmit(taskData) {
     console.log('FORM SUBMITTED', taskData);
-    const task: TaskData = { project: taskData.projectName, text: taskData.taskDescription, id: Guid.create() };
+    const task: TaskData = { project: taskData.projectName, text: taskData.taskDescription, id: Guid.create(), canEdit: false };
     this.newTask.emit(task);
     this.taskCreateForm.reset();
   }
