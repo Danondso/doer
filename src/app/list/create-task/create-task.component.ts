@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { TaskData } from '../task-data';
+import { TaskData } from '../../interfaces/task-data';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { SlideInAndOut } from 'src/app/animations/slide-in-and-out.animation';
+import { Guid } from 'guid-typescript';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class CreateTaskComponent {
 
   onSubmit(taskData) {
     console.log('FORM SUBMITTED', taskData);
-    const task: TaskData = { project: taskData.projectName, text: taskData.taskDescription };
+    const task: TaskData = { project: taskData.projectName, text: taskData.taskDescription, id: Guid.create() };
     this.newTask.emit(task);
     this.taskCreateForm.reset();
   }

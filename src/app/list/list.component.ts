@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { TaskData } from './task-data';
+import { TaskData } from '../interfaces/task-data';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-list',
@@ -10,10 +11,10 @@ export class ListComponent implements OnInit {
   showTaskCreate: boolean;
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
   tasks: TaskData[] = [
-    { id: 1, project: 'Cat', text: 'Eat the cat.', },
-    { id: 2, project: 'Cat', text: 'Feline feline feline.', },
-    { id: 3, project: 'Truck', text: 'You know what I mean..', },
-    { id: 4, project: 'Tour', text: 'Waiting to take you away!!', }
+    { id: Guid.create(), project: 'Cat', text: 'Eat the cat.', },
+    { id: Guid.create(), project: 'Cat', text: 'Feline feline feline.', },
+    { id: Guid.create(), project: 'Truck', text: 'You know what I mean..', },
+    { id: Guid.create(), project: 'Tour', text: 'Waiting to take you away!!', }
   ];
   constructor() { }
 
@@ -24,12 +25,11 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteTask(id: number) {
-    for (let index of this.tasks) {
-      if (index.id === id) {
-          console.log("DELETING TASK WITH ID ", id);
-          this.tasks.splice(id);
-          break;
+  deleteTask(id: Guid) {
+    for (const index of this.tasks) {
+      if (index.id.equals(id)) {
+        console.log('DELETING TASK WITH ID ', id);
+        this.tasks.splice(this.tasks.indexOf(index));
       }
     }
   }
@@ -38,8 +38,8 @@ export class ListComponent implements OnInit {
 
   }
 
-  completeTask(id: number) {
-      this.deleteTask(id);
+  completeTask(id: Guid) {
+    this.deleteTask(id);
   }
 
 }

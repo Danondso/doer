@@ -1,5 +1,7 @@
+import { Guid } from 'guid-typescript';
+
 export interface TaskData {
     project: string;
-    id?: number;
+    id: Guid;
     text: string;
 }
