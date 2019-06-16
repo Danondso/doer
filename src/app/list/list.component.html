@@ -13,13 +13,13 @@
       <input matInput *ngIf="task.canEdit" class="project-name" [(ngModel)]="task.text"/>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button class="mat-primary" mat-button type="submit" (click)="this.completeTask(task.id)">
+      <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)" [disabled]="!task.canEdit">
           <i class="task-buttons material-icons">check</i>
       </button>
-      <button mat-button class="mat-primary" mat-button type="submit" (click)="task.canEdit = !task.canEdit">
+      <button mat-icon-button class="mat-primary" type="submit" (click)="task.canEdit = !task.canEdit">
           <i class="task-buttons material-icons">edit</i>
       </button>
-      <button mat-button class="mat-primary" mat-button type="submit" (click)="this.deleteTask(task.id)" >
+      <button mat-icon-button class="mat-primary" type="submit" (click)="this.deleteTask(task.id)" >
           <i class="task-buttons material-icons">delete</i>
       </button>
     </mat-card-actions>
