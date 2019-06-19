@@ -5,4 +5,5 @@ export interface TaskData {
     id: Guid;
     text: string;
     canEdit: boolean;
+    createdTime: Date;
 }

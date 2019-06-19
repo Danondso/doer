@@ -10,13 +10,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateTaskComponent } from './list/create-task/create-task.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     SettingsComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,

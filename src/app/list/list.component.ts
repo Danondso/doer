@@ -12,10 +12,10 @@ export class ListComponent implements OnInit {
   canEdit: boolean;
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
   tasks: TaskData[] = [
-    { id: Guid.create(), project: 'Cat', text: 'Eat the cat.', canEdit: false},
-    { id: Guid.create(), project: 'Cat', text: 'Feline feline feline.', canEdit: false},
-    { id: Guid.create(), project: 'Truck', text: 'You know what I mean..', canEdit: false},
-    { id: Guid.create(), project: 'Tour', text: 'Waiting to take you away!!', canEdit: false}
+    { id: Guid.create(), project: 'Cat', text: 'Eat the cat.', canEdit: false, createdTime: new Date() },
+    { id: Guid.create(), project: 'Cat', text: 'Feline feline feline.', canEdit: false, createdTime: new Date() },
+    { id: Guid.create(), project: 'Truck', text: 'You know what I mean..', canEdit: false, createdTime: new Date() },
+    { id: Guid.create(), project: 'Tour', text: 'Waiting to take you away!!', canEdit: false, createdTime: new Date() }
   ];
   constructor() { }
 
