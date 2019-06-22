@@ -2,9 +2,9 @@
   <h1 class="mat-display-1 tasks-phrase">{{tasksTitle}}</h1>
   <mat-card *ngFor="let task of tasks" class="card-container">
     <mat-card-header>
-      <span class="created-time">
-       Created on {{task.createdTime | dateFormat}}
-      </span>
+      <section class="created-time">
+          Created: {{task.createdTime | dateFormat}}
+      </section>
       <mat-card-title>
         <p class="project-name">
           <span *ngIf="!task.canEdit">{{task.project}}</span>
