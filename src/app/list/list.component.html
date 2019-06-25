@@ -1,10 +1,10 @@
 <section class="task-content">
   <h1 class="mat-display-1 tasks-phrase">{{tasksTitle}}</h1>
   <mat-card *ngFor="let task of tasks" class="card-container">
+    <span class="created-time">
+      Made on {{task.createdTime | dateFormat}}
+    </span>
     <mat-card-header>
-      <span class="created-time">
-       Created on {{task.createdTime | dateFormat}}
-      </span>
       <mat-card-title>
         <p class="project-name">
           <span *ngIf="!task.canEdit">{{task.project}}</span>
@@ -18,15 +18,16 @@
         <input matInput *ngIf="task.canEdit" [(ngModel)]="task.text" />
       </p>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)" [disabled]="!task.canEdit">
-          <i class="task-buttons material-icons">check</i>
+    <mat-card-actions class="task-actions">
+      <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)"
+        [disabled]="!task.canEdit">
+        <i class="task-buttons material-icons">check</i>
       </button>
       <button mat-icon-button class="mat-primary" type="submit" (click)="task.canEdit = !task.canEdit">
-          <i class="task-buttons material-icons">edit</i>
+        <i class="task-buttons material-icons">edit</i>
       </button>
-      <button mat-icon-button class="mat-primary" type="submit" (click)="this.deleteTask(task.id)" >
-          <i class="task-buttons material-icons">delete</i>
+      <button mat-icon-button class="mat-primary" type="submit" (click)="this.deleteTask(task.id)">
+        <i class="task-buttons material-icons">delete</i>
       </button>
     </mat-card-actions>
   </mat-card>

@@ -5,13 +5,11 @@
 
 .card
     text-align: center
-.container
-    +centering
 
 .card-container
     +centering
     +responsive-text
-    width: 20vw
+    max-width: 20vw
     margin-bottom: 1.5vh  
     background: mat-color($my-app-accent)
     color: $global-font-color
@@ -35,11 +33,13 @@
     
 .task-buttons
     color: $global-font-color
-    +responsive-text
-    font-size: 2vw
+    font-size: .3vw
+    min-width: 1vw
 
 .project-name-input
     padding: 10px 10px 10px 10px
 
 .created-time
     +responsive-text
+    float: right
+    font-size: 0.8vw
