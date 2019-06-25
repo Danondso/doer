@@ -30,11 +30,15 @@
 
 .tasks-phrase
     font-size: 2.5vw
-    
+
+::ng-deep .mat-icon-button
+    width: 0px //TODO override this to work with the card responsiveness
+    height: 0px  
 .task-buttons
     color: $global-font-color
-    font-size: 1vw
-    min-width: 1vw
+    font-size: 2vw
+    max-width: 9.5vw
+    float: left
 
 .project-name-input
     padding: 10px 10px 10px 10px
