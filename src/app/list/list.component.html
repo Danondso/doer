@@ -18,9 +18,9 @@
         <input matInput *ngIf="task.canEdit" [(ngModel)]="task.text" />
       </p>
     </mat-card-content>
-    <mat-card-actions class="task-actions">
+    <mat-card-actions>
       <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)"
-        [disabled]="!task.canEdit">
+        [disabled]="task.canEdit">
         <i class="task-buttons material-icons">check</i>
       </button>
       <button mat-icon-button class="mat-primary" type="submit" (click)="task.canEdit = !task.canEdit">
