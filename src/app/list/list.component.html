@@ -1,5 +1,4 @@
 <section class="task-content">
-  <h1 class="mat-display-1 tasks-phrase">{{tasksTitle}}</h1>
   <mat-card *ngFor="let task of tasks" class="card-container">
     <span class="created-time">
       Made on {{task.createdTime | dateFormat}}

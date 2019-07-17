@@ -2,10 +2,6 @@
 @import '../../theme.sass'
 @import '~@angular/material/theming'
 
-
-.card
-    text-align: center
-
 .card-container
     +centering
     +responsive-text
@@ -24,21 +20,15 @@
     font-size: 1.5vw
     +responsive-text
 
-.project-name
-    font-size: 2vw
-    +responsive-text
-
-.tasks-phrase
-    font-size: 2.5vw
-
-::ng-deep .mat-icon-button
-    width: 6vw
-    height: 4vw  
 .task-buttons
     color: $global-font-color
     font-size: 2vw
     max-width: 9.5vw
     float: left
+
+.project-name
+    font-size: 2vw
+    +responsive-text
 
 .project-name-input
     padding: 10px 10px 10px 10px
@@ -47,3 +37,7 @@
     +responsive-text
     float: right
     font-size: 0.8vw
+
+::ng-deep .mat-icon-button
+    width: 6vw
+    height: 4vw
