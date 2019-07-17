@@ -1,7 +1,7 @@
-<section class="task-content">
+<section class="task-list-content">
   <mat-card *ngFor="let task of tasks" class="card-container">
     <span class="created-time">
-      Made on {{task.createdTime | dateFormat}}
+      Created: {{task.createdTime | dateFormat}}
     </span>
     <mat-card-header>
       <mat-card-title>
@@ -18,16 +18,16 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)"
+      <!-- <button mat-icon-button class="mat-primary" type="submit" (click)="this.completeTask(task.id)"
         [disabled]="task.canEdit">
         <i class="task-buttons material-icons">check</i>
+      </button> -->
+      <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="task.canEdit = !task.canEdit">
+        <i class="material-icons">edit</i>
       </button>
-      <button mat-icon-button class="mat-primary" type="submit" (click)="task.canEdit = !task.canEdit">
-        <i class="task-buttons material-icons">edit</i>
-      </button>
-      <button mat-icon-button class="mat-primary" type="submit" (click)="this.deleteTask(task.id)">
+      <!-- <button mat-icon-button class="mat-primary" type="submit" (click)="this.deleteTask(task.id)">
         <i class="task-buttons material-icons">delete</i>
-      </button>
+      </button> -->
     </mat-card-actions>
   </mat-card>
 </section>
