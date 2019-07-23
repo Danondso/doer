@@ -7,14 +7,14 @@
       <mat-card-title>
         <p class="project-name">
           <span *ngIf="!task.canEdit">{{task.project}}</span>
-          <input matInput *ngIf="task.canEdit" [(ngModel)]="task.project" />
+          <input matInput class="task-edit-field" *ngIf="task.canEdit" [(ngModel)]="task.project" />
         </p>
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p class="task-description">
         <span *ngIf="!task.canEdit">{{task.text}}</span>
-        <input matInput *ngIf="task.canEdit" [(ngModel)]="task.text" />
+        <input matInput class="task-edit-field" [@fadeInAnimation]="task.canEdit ? 'true' : 'false'" [(ngModel)]="task.text" />
       </p>
     </mat-card-content>
     <mat-card-actions>

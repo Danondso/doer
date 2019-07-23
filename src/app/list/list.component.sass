@@ -15,16 +15,16 @@
         background: mat-color($my-app-accent)
         color: $global-font-color
 
-        .task-description
-            +responsive-text
-
         .task-buttons
             color: $global-font-color
             font-size: 3vw
             float: left
 
-        .project-name
+        .project-name, .task-description
             +responsive-text
+
+            .task-edit-field
+                text-decoration: underline
 
         .project-name-input
             padding: 10px 10px 10px 10px

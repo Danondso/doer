@@ -1,11 +1,13 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { TaskData } from '../interfaces/task-data';
 import { Guid } from 'guid-typescript';
+import { FadeIn } from 'src/app/animations/fade-in.animation';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.sass'],
+  animations: [FadeIn],
 })
 export class ListComponent implements OnInit {
   showTaskCreate: boolean;

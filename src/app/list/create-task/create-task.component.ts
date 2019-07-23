@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TaskData } from '../../interfaces/task-data';
-import { transition, trigger, style, state, animate } from '@angular/animations';
 import { SlideInAndOut } from 'src/app/animations/slide-in-and-out.animation';
 import { Guid } from 'guid-typescript';
 
