@@ -10,12 +10,12 @@
         <mat-card-header>
           <mat-card-title>
             <mat-form-field>
-                <input matInput placeholder="Project" type="text" formControlName="projectName" class="task-edit-field">
+                <input matInput placeholder="Project" type="text" formControlName="projectName">
             </mat-form-field>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-          <input required matInput id="project-name" placeholder="Description" formControlName="taskDescription" class="task-edit-field">
+        <mat-card-content class="task-description">
+          <input required matInput id="project-name" placeholder="Description" formControlName="taskDescription">
         </mat-card-content>
         <mat-card-actions class="create-button">
           <button mat-raised-button class="mat-primary" [disabled]="!taskCreateForm.valid" mat-button
