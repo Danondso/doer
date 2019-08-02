@@ -2,50 +2,27 @@
 @import '../../../theme.sass'
 @import '../list.component.sass'
 
-.task-create-card
-    +responsive-text
-    text-align: center
-.form-field-wrapper
-    width: auto !important
-.mat-card
-    width: auto !important
-    
-.show-task-create-form
-    display: flex
-    justify-content: center
 
-.create-button
-    text-align: left
-    width: 3vw
-    color: $global-font-color
-
-
-.card-container
-    width: 20vw !important
-    
 .create-task-content
     background: mat-color($my-app-primary)
     color: $global-font-color
 
-::ng-deep .mat-form-field 
-    .mat-input-element 
+    .show-task-create-form
+        display: flex
+        justify-content: center
+    
+    .card-container
+        +centering
+        +responsive-text
+        max-width: 40vw
+        margin-bottom: 1.5vh  
+        background: mat-color($my-app-accent)
         color: $global-font-color
-    .mat-form-field-label 
-        color: $global-font-color
-        font-size: 2vw !important
-    .mat-form-field-underline 
-        background-color: mat-color($my-app-accent)
-    .mat-form-field-ripple 
-        background-color: mat-color($my-app-accent)
-    .mat-form-field-required-marker 
-        color: $global-font-color
+        .project-name, .task-description
+            +responsive-text
 
-::ng-deep .mat-form-field.mat-focused 
-    .mat-form-field-label
-        color: $global-font-color
-    .mat-form-field-ripple 
-        background-color: mat-color($my-app-accent)
-    .mat-form-field-required-marker 
-        color: $global-font-color
-    .mat-input-element 
-        color: $global-font-color
+            .task-edit-field
+                text-decoration: underline
+
+        .project-name-input
+            padding: 10px 10px 10px 10px
