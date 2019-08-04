@@ -13,12 +13,13 @@ WORKDIR /doer
 ENV PATH /doer/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /app/package.json
+COPY package.json /doer/package.json
 RUN npm install
 RUN npm install -g @angular/cli@8.2.0
 
 # add app
 COPY . /doer
 
+EXPOSE 4200
 # start
-CMD "ng serve --host 0.0.0.0"
+CMD ng serve --host 0.0.0.0
