@@ -9,14 +9,14 @@
       <form [formGroup]="taskCreateForm" (ngSubmit)="onSubmit(taskCreateForm.value)">
         <mat-card-header>
           <mat-card-title>
-            <mat-form-field>
+            <mat-form-field class="project-name">
               <input matInput placeholder="Project" type="text" formControlName="projectName">
             </mat-form-field>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="task-description">
           <mat-form-field>
-            <input required matInput id="project-name" placeholder="Description" formControlName="taskDescription">
+            <input required matInput placeholder="Description" type="text" formControlName="taskDescription">
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions class="create-button">
