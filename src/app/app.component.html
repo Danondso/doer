@@ -6,17 +6,29 @@
           <button mat-raised-button class="mat-primary">Tasks</button>
         </a>
       </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/settings">
-          <button mat-raised-button class="mat-primary">Settings</button>
-        </a>
-      </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
     <mat-toolbar class="mat-accent">
-      <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu
-      </button>
+      <section>
+          <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu</button>
+      </section>
+      <section class="theme-selector">
+          <mat-form-field>
+              <mat-label>Theme</mat-label>
+              <mat-select>
+                <mat-option >
+                  <p class="button-test">
+                      Test
+                  </p>
+                  
+                </mat-option>
+                <mat-option>
+                  Blessed
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      </section>
     </mat-toolbar>
     <div>
       <router-outlet></router-outlet>

@@ -3,14 +3,19 @@
 $roboto: 'Roboto', sans-serif
 
 .sidnav-container
-   font-family: $roboto
-   display: flex
-   position: absolute
+    font-family: $roboto
+    display: flex
 
-.sidenav-content
-    width: 100%
-    background: mat-color($my-app-primary)
+    .sidenav-menu
+        color: $global-font-color
+        background: mat-color($my-app-warn)
 
-.sidenav-menu
-    color: $global-font-color
-    background: mat-color($my-app-warn)
+    .sidenav-content
+        width: 100%
+        background: mat-color($my-app-primary)
+
+        .theme-selector
+            padding-left: 15px
+
+        .button-test
+            background: mat-color($my-app-warn)

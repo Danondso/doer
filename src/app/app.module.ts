@@ -5,10 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatGridListModule, MatToolbarModule,
-MatIconModule, MatInputModule } from '@angular/material';
+MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SettingsComponent } from './settings/settings.component';
 import { CreateTaskComponent } from './list/create-task/create-task.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 
@@ -16,7 +15,6 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
   declarations: [
     AppComponent,
     ListComponent,
-    SettingsComponent,
     CreateTaskComponent,
     DateFormatPipe
   ],
@@ -31,6 +29,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
+    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
