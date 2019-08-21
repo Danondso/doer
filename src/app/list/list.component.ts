@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TaskData } from '../interfaces/task-data';
 import { Guid } from 'guid-typescript';
 import { FadeIn } from 'src/app/animations/fade-in.animation';
@@ -12,6 +12,8 @@ import { FadeIn } from 'src/app/animations/fade-in.animation';
 export class ListComponent implements OnInit {
   showTaskCreate: boolean;
   canEdit: boolean;
+  @Input() isAlternateMode: boolean;
+
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
   tasks: TaskData[] = [
     { id: Guid.create(), project: 'Cat', text: 'Feed the cat.', canEdit: false, createdTime: new Date() },

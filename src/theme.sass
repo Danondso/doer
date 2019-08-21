@@ -12,7 +12,5 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn)
 
 $alternate-primary: mat-palette($mat-light-blue)
 $alternate-accent:  mat-palette($mat-yellow, 400)
-$alternate-theme: mat-light-theme($alternate-primary, $alternate-accent)
-
-.alternate-theme
-  @include angular-material-theme($alternate-theme)
+$alternate-warn:  mat-palette($mat-pink, 400)
+$alternate-theme: mat-light-theme($alternate-primary, $alternate-accent, $alternate-warn)

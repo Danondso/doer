@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'theme.sass'    
+@import 'theme.sass'
 
 $global-font-color: white
 
@@ -13,4 +13,7 @@ $global-font-color: white
 
 =centering
     float: center
-    margin: auto 
+    margin: auto
+
+.alternate-theme
+    @include angular-material-theme($alternate-theme)

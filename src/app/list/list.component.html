@@ -1,4 +1,4 @@
-<section class="task-list-content">
+<section class="task-list-content" [class.alternate-theme]="isAlternateMode">
   <mat-card *ngFor="let task of tasks" class="card-container">
     <span class="created-time">
       Created: {{task.createdTime | dateFormat}}
