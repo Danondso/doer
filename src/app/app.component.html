@@ -1,33 +1,27 @@
-<mat-sidenav-container class="sidnav-container" [class.alternate-theme]="isAlternateMode" fullscreen>
-  <mat-sidenav #sidenav mode="side" class="sidenav-menu">
-    <mat-list>
-      <mat-list-item>
-        <a routerLink="/tasks">
-          <button mat-raised-button class="mat-primary">Tasks</button>
-        </a>
-      </mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-  <mat-sidenav-content class="sidenav-content" [class.alternate-theme]="isAlternateMode">
-    <mat-toolbar class="mat-accent">
-      <section>
-          <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu</button>
-      </section>
-      <section class="theme-selector">
-          <mat-form-field>
-              <mat-label>Theme</mat-label>
-              <mat-select>
-                <mat-option>
-                  <button mat-icon-button (click)="this.isAlternateMode=!isAlternateMode">
-                    Bright
-                  </button>
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-      </section>
-    </mat-toolbar>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<section >
+  <mat-sidenav-container class="sidnav-container" [ngClass]="{ 'dark-theme': isDarkTheme | async }" fullscreen>
+    <mat-sidenav #sidenav mode="side" class="sidenav-menu">
+      <mat-list>
+        <mat-list-item>
+          <a routerLink="/tasks">
+            <button mat-raised-button class="mat-primary">Tasks</button>
+          </a>
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <mat-toolbar class="mat-accent">
+        <section>
+            <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu</button>
+        </section>
+        <section class="theme-selector">
+            <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark Theme</mat-slide-toggle>
+        </section>
+      </mat-toolbar>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>
+
