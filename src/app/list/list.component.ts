@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TaskData } from '../interfaces/task-data';
+import { TaskData } from '../core/interfaces/task-data';
 import { Guid } from 'guid-typescript';
 import { FadeIn } from 'src/app/animations/fade-in.animation';
 import { Observable } from 'rxjs';
