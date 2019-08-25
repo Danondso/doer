@@ -14,7 +14,8 @@
     <mat-card-content>
       <p class="task-description">
         <span *ngIf="!task.canEdit">{{task.text}}</span>
-        <input matInput class="task-edit-field" [@fadeInAnimation]="task.canEdit ? 'true' : 'false'" [(ngModel)]="task.text" />
+        <input matInput class="task-edit-field" *ngIf="task.canEdit"
+          [@fadeInAnimation]="task.canEdit ? 'true' : 'false'" [(ngModel)]="task.text" />
       </p>
     </mat-card-content>
     <mat-card-actions>

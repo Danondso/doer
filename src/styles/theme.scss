@@ -4,8 +4,8 @@
 @include mat-core();
  
 // Default theme
-$doer-primary: mat-palette($mat-indigo);
-$doer-accent: mat-palette($mat-pink, A200, A100, A400);
+$doer-primary: mat-palette($mat-light-green);
+$doer-accent: mat-palette($mat-light-blue, A200, A100, A400);
 $doer-theme: mat-light-theme($doer-primary, $doer-accent);
 
 @include angular-material-theme($doer-theme);

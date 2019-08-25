@@ -40,10 +40,6 @@ export class ListComponent implements OnInit {
     }
   }
 
-  editTask() {
-
-  }
-
   completeTask(id: Guid) {
     this.deleteTask(id);
   }

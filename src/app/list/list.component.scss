@@ -1,6 +1,5 @@
 @import '../../styles/styles.scss';
 
-
 @mixin list-theme($theme) {
   $accent: map-get($theme, accent);
   $background: map-get($theme, background);
