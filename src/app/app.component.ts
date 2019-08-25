@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'doer';
@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   toggleDarkTheme(isToggled: boolean) {
-    console.log("TOGGLING DARK THEME TO", isToggled);
     this.themeService.setDarkTheme(isToggled);
   }
 

@@ -1,0 +1,14 @@
+@mixin responsive-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin small-screen {
+  width: 1.1rem;
+}
+
+@mixin centering {
+  float: center;
+  margin: auto;
+}

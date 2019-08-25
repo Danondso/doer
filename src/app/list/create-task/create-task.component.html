@@ -1,7 +1,7 @@
-<section class="create-task-content">
+<section class="create-task-content" [ngClass]="{'dark-theme': isDarkTheme | async}">
   <section class="show-task-create-form">
     <button mat-icon-button (click)="this.showTaskCreateForm=!showTaskCreateForm">
-      <i class="material-icons">add</i>
+      <i class="material-icons add-task-icon">add</i>
     </button>
   </section>
   <section [@showTaskCreateAnimation]="this.showTaskCreateForm ? 'true' : 'false'">

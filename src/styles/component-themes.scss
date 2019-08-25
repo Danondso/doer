@@ -1,0 +1,8 @@
+//@import './styles.scss';
+@import '../app/list/list.component.scss';
+@import '../app/list/create-task/create-task.component.scss';
+
+@mixin component-themes($theme) {
+    @include list-theme($theme);
+    @include create-task-theme($theme);
+  }

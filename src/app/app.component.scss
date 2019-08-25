@@ -1,0 +1,11 @@
+.sidnav-container {
+  display: flex;
+
+  .sidenav-content {
+    width: 100%;
+
+    .theme-selector {
+      padding-left: 15px;
+    }
+  }
+}

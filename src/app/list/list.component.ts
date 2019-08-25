@@ -2,17 +2,18 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TaskData } from '../interfaces/task-data';
 import { Guid } from 'guid-typescript';
 import { FadeIn } from 'src/app/animations/fade-in.animation';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.sass'],
+  styleUrls: ['./list.component.scss'],
   animations: [FadeIn],
 })
 export class ListComponent implements OnInit {
   showTaskCreate: boolean;
   canEdit: boolean;
-  @Input() isAlternateMode: boolean;
+  isDarkTheme: Observable<boolean>;
 
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
   tasks: TaskData[] = [

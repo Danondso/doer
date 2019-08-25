@@ -8,7 +8,7 @@ import { Guid } from 'guid-typescript';
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
-  styleUrls: ['./create-task.component.sass'],
+  styleUrls: ['./create-task.component.scss'],
    animations: [SlideInAndOut],
 })
 export class CreateTaskComponent {

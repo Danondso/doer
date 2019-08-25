@@ -1,5 +1,5 @@
-<section >
-  <mat-sidenav-container class="sidnav-container" [ngClass]="{ 'dark-theme': isDarkTheme | async }" fullscreen>
+<section [ngClass]="{ 'dark-theme': isDarkTheme | async }">
+  <mat-sidenav-container class="sidnav-container" fullscreen>
     <mat-sidenav #sidenav mode="side" class="sidenav-menu">
       <mat-list>
         <mat-list-item>
@@ -24,4 +24,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
-
