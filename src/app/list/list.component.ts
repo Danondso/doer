@@ -1,14 +1,39 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TaskData } from '../core/interfaces/task-data';
 import { Guid } from 'guid-typescript';
-import { FadeIn } from 'src/app/animations/fade-in.animation';
 import { Observable } from 'rxjs';
+import { trigger, state, style, transition, animate, group } from '@angular/animations';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  animations: [FadeIn],
+  animations: [trigger('fadeInAnimation', [
+    state('true', style({
+        opacity: '1', visibility: 'visible'
+    })),
+    state('false', style({
+        opacity: '0', visibility: 'hidden'
+    })),
+    transition('true => false', [group([
+        animate('400ms ease-in-out', style({
+            opacity: '0'
+        })),
+        animate('700ms ease-in-out', style({
+            visibility: 'hidden'
+        }))
+    ]
+    )]),
+    transition('false => true', [group([
+        animate('1ms ease-in-out', style({
+            visibility: 'visible'
+        })),
+        animate('1ms ease-in-out', style({
+            opacity: '1'
+        }))
+    ]
+    )])
+])],
 })
 export class ListComponent implements OnInit {
   showTaskCreate: boolean;

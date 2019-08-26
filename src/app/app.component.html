@@ -12,15 +12,14 @@
     <mat-sidenav-content class="sidenav-content">
       <mat-toolbar class="mat-accent">
         <section>
-            <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu</button>
+          <button mat-raised-button class="mat-primary" (click)="sidenav.toggle()">Menu</button>
         </section>
         <section class="theme-selector">
-            <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark Theme</mat-slide-toggle>
+          <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark Theme
+          </mat-slide-toggle>
         </section>
       </mat-toolbar>
-      <div>
         <router-outlet></router-outlet>
-      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
