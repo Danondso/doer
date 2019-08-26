@@ -13,7 +13,7 @@ $doer-theme: mat-light-theme($doer-primary, $doer-accent);
 
 .dark-theme {
     $dark-primary: mat-palette($mat-blue-grey);
-    $dark-accent: mat-palette($mat-cyan, A100, A300, A600);
+    $dark-accent: mat-palette($mat-deep-purple, A100, A300, A600);
     $dark-warn: mat-palette($mat-deep-orange);
     $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
     @include angular-material-theme($dark-theme);
