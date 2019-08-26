@@ -22,6 +22,10 @@
         font-size: 3vw;
         float: left;
         color: $background-color;
+
+        .disabled {
+          color: mat-color($accent);
+        }
       }
 
       .project-name,

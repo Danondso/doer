@@ -21,7 +21,7 @@
     <mat-card-actions>
       <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="this.completeTask(task.id)"
         [disabled]="task.canEdit">
-        <i class="material-icons">check</i>
+        <mat-icon [ngClass]="{ 'disabled' : task.canEdit }" class="material-icons">check</mat-icon>
       </button>
       <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="task.canEdit = !task.canEdit">
         <i class="material-icons">edit</i>
