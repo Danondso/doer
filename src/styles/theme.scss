@@ -4,8 +4,8 @@
 @include mat-core();
  
 // Default theme
-$doer-primary: mat-palette($mat-light-green);
-$doer-accent: mat-palette($mat-light-blue, A200, A100, A400);
+$doer-primary: mat-palette($mat-blue);
+$doer-accent: mat-palette($mat-red, A200, A100, A400);
 $doer-theme: mat-light-theme($doer-primary, $doer-accent);
 
 @include angular-material-theme($doer-theme);
@@ -13,7 +13,7 @@ $doer-theme: mat-light-theme($doer-primary, $doer-accent);
 
 .dark-theme {
     $dark-primary: mat-palette($mat-blue-grey);
-    $dark-accent: mat-palette($mat-amber, A200, A100, A400);
+    $dark-accent: mat-palette($mat-cyan, A100, A300, A600);
     $dark-warn: mat-palette($mat-deep-orange);
     $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
     @include angular-material-theme($dark-theme);

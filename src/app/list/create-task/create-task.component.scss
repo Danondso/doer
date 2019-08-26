@@ -21,10 +21,12 @@
       max-width: 40vw;
       margin-bottom: 1.5vh;
       background: mat-color($accent);
+      color: $background-color;
 
       .project-name,
       .task-description {
         @include responsive-text;
+        color: $background-color;
       }
 
       .project-name-input {
