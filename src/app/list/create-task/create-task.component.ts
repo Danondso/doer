@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { TaskData } from '../../core/interfaces/task-data';
 import { Guid } from 'guid-typescript';
 import { trigger, state, style, transition, animate, group } from '@angular/animations';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -40,11 +41,10 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
 ])],
 })
 export class CreateTaskComponent {
-
   taskCreateForm;
-
   @Input() showTaskCreateForm: boolean;
   @Output() newTask: EventEmitter<TaskData> = new EventEmitter<TaskData>();
+  isDarkTheme: Observable<boolean>;
 
   constructor(private formBuilder: FormBuilder) {
     this.taskCreateForm = this.formBuilder.group({
