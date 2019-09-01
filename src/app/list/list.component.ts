@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaskData } from '../core/interfaces/task-data';
-import { Guid } from 'guid-typescript';
 import { Observable } from 'rxjs';
 import { trigger, state, style, transition, animate, group } from '@angular/animations';
+import { TaskService } from '../core/services/task/task.service';
 
 @Component({
   selector: 'app-list',
@@ -41,31 +41,33 @@ export class ListComponent implements OnInit {
   isDarkTheme: Observable<boolean>;
 
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
-  tasks: TaskData[] = [
-    { id: Guid.create(), project: 'Cat', text: 'Feed the cat.', canEdit: false, createdTime: new Date() },
-    { id: Guid.create(), project: 'Dog', text: 'Walk the dog.', canEdit: false, createdTime: new Date() },
-    { id: Guid.create(), project: 'Work', text: 'Prepare sandwiches for the party', canEdit: false, createdTime: new Date() }
-  ];
-  constructor() { }
+  tasks: TaskData[];
+  constructor(private taskService: TaskService) { }
 
   addTask(event: TaskData) {
     console.log('SUBMITTED EVENT', event);
-    this.tasks.push(event);
+    this.taskService.createTask(event).subscribe((response: TaskData) => {
+      this.tasks.push(response['data']);
+    });
   }
   ngOnInit() {
+    this.taskService.getTasks('')
+    .subscribe((payload: TaskData[]) => this.tasks = payload['data']);
   }
 
-  deleteTask(id: Guid) {
+  deleteTask(id: string) {
     for (const index of this.tasks) {
-      if (index.id.equals(id)) {
+      if (index.id === id) {
         console.log('DELETING TASK WITH ID ', id);
-        this.tasks.splice(this.tasks.indexOf(index), 1);
+        this.taskService.deleteTask(id).subscribe(() => {
+          this.tasks.splice(this.tasks.indexOf(index), 1);
+        });
         break;
       }
     }
   }
 
-  completeTask(id: Guid) {
+  completeTask(id: string) {
     this.deleteTask(id);
   }
 

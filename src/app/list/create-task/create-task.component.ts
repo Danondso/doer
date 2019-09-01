@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TaskData } from '../../core/interfaces/task-data';
-import { Guid } from 'guid-typescript';
 import { trigger, state, style, transition, animate, group } from '@angular/animations';
 import { Observable } from 'rxjs';
+import { TaskService } from '../../core/services/task/task.service';
 
 
 @Component({
@@ -46,7 +46,7 @@ export class CreateTaskComponent {
   @Output() newTask: EventEmitter<TaskData> = new EventEmitter<TaskData>();
   isDarkTheme: Observable<boolean>;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private taskService: TaskService) {
     this.taskCreateForm = this.formBuilder.group({
       projectName: '',
       taskDescription: '',
@@ -57,9 +57,7 @@ export class CreateTaskComponent {
     console.log('FORM SUBMITTED', taskData);
     const task: TaskData = {
       project: taskData.projectName,
-      text: taskData.taskDescription,
-      id: Guid.create(), canEdit: false,
-      createdTime: new Date()
+      text: taskData.taskDescription
     };
     this.newTask.emit(task);
     this.taskCreateForm.reset();
