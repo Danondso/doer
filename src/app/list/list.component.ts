@@ -44,15 +44,17 @@ export class ListComponent implements OnInit {
   tasks: TaskData[];
   constructor(private taskService: TaskService) { }
 
-  addTask(event: TaskData) {
-    console.log('SUBMITTED EVENT', event);
-    this.taskService.createTask(event).subscribe((response: TaskData) => {
-      this.tasks.push(response['data']);
-    });
-  }
   ngOnInit() {
     this.taskService.getTasks('')
-    .subscribe((payload: TaskData[]) => this.tasks = payload['data']);
+    .subscribe((payload: TaskData[]) => this.tasks = payload.data);
+  }
+
+  addTask(event: TaskData) {
+    console.log('SUBMITTED EVENT', event);
+    event.email = '';
+    this.taskService.createTask(event).subscribe((response: TaskData) => {
+      this.tasks.push(response.data);
+    });
   }
 
   deleteTask(id: string) {
@@ -66,6 +68,8 @@ export class ListComponent implements OnInit {
       }
     }
   }
+
+  
 
   completeTask(id: string) {
     this.deleteTask(id);
