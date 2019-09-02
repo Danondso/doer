@@ -9,20 +9,15 @@ export class LoginService {
 
   apiUrl: string = environment.apiBaseUrl;
 
-  headers = new HttpHeaders()
-  .append('Access-Control-Allow-Origin', 'localhost')
-  .append('Access-Control-Allow-Methods', 'POST, PUT, DELETE');
+  headers = new HttpHeaders();
 
   constructor(private httpClient: HttpClient) { }
 
   login(loginBody) {
-    const token = this.basicAuthWrapper(loginBody.email, loginBody.password);
-    this.headers.append('Authorization', 'Basic ' + token);
+    this.headers.append('Authorization', 'Basic ' + btoa(loginBody.email + ':' + loginBody.password));
+    this.headers.append('Access-Control-Allow-Origin', 'localhost');
+    this.headers.append('Access-Control-Allow-Methods', 'POST, PUT, DELETE');
     return this.httpClient.post(`${this.apiUrl}/login`, '', {headers: this.headers});
-  }
-
-  basicAuthWrapper(user: string, password: string) {
-    return btoa(user + ':' + password);
   }
 
   signup(signupBody) {
