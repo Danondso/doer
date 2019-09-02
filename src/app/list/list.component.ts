@@ -46,14 +46,14 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.taskService.getTasks('')
-    .subscribe((payload: TaskData[]) => this.tasks = payload.data);
+    .subscribe((payload: TaskData[]) => this.tasks = payload['data']);
   }
 
   addTask(event: TaskData) {
     console.log('SUBMITTED EVENT', event);
     event.email = '';
     this.taskService.createTask(event).subscribe((response: TaskData) => {
-      this.tasks.push(response.data);
+      this.tasks.push(response['data']);
     });
   }
 

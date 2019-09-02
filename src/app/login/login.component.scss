@@ -1,0 +1,46 @@
+@import '../../styles/styles.scss';
+
+@mixin login-theme($theme) {
+    $accent: map-get($theme, accent);
+    $background: map-get($theme, background);
+    $background-color: mat-color($background, card);
+  
+  
+      .card-container {
+        background: mat-color($accent);
+        color: $background-color;
+        @include centering;
+        @include responsive-text;
+        max-width: 40vw;
+        margin-top: 48vh;
+        margin-bottom: 1.5vh;
+  
+        .task-buttons {
+          font-size: 3vw;
+          float: left;
+          color: $background-color;
+  
+          .disabled {
+            color: mat-color($accent);
+          }
+        }
+  
+        .project-name,
+        .task-description {
+          @include responsive-text;
+        }
+  
+        .task-edit-field {
+          text-decoration: underline;
+        }
+  
+        .project-name-input {
+          padding: 10px 10px 10px 10px;
+        }
+  
+        .created-time {
+          float: right;
+          font-size: calc(6px + .6vw);
+        }
+      }
+    }

@@ -11,13 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateTaskComponent } from './list/create-task/create-task.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './login/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     CreateTaskComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
