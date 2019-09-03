@@ -1,1 +1,29 @@
-<p>signup works!</p>
+<section>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+    <mat-card-content class="task-description">
+      <mat-form-field>
+        <input matInput placeholder="First Name" type="text" formControlName="firstName">
+      </mat-form-field>
+      <section></section>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" type="text" formControlName="lastName">
+      </mat-form-field>
+      <section></section>
+      <mat-form-field>
+        <input matInput placeholder="Email" type="text" formControlName="email">
+      </mat-form-field>
+      <section></section>
+      <mat-form-field>
+            <input matInput placeholder="Handle" type="text" formControlName="username">
+          </mat-form-field>
+          <section></section>
+      <mat-form-field>
+        <input required matInput placeholder="Password" type="password" formControlName="password">
+      </mat-form-field>
+      <section></section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="mat-primary" mat-button type="submit">Signup</button>
+    </mat-card-actions>
+  </form>
+</section>

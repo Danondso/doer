@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatGridListModule, MatToolbarModule,
-MatIconModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
+MatIconModule, MatInputModule, MatSlideToggleModule, MatTabsModule } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateTaskComponent } from './list/create-task/create-task.component';
@@ -35,6 +35,7 @@ import { SignupComponent } from './login/signup/signup.component';
     MatIconModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

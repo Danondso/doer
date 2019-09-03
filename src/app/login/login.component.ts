@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm) {
-    console.log(loginForm);
     //TODO sanitize inputs.
     this.loginService.login(loginForm).subscribe(result => {
       console.log(result);
