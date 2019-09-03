@@ -9,18 +9,14 @@ export class LoginService {
 
   apiUrl: string = environment.apiBaseUrl;
 
-  headers = new HttpHeaders();
-
   constructor(private httpClient: HttpClient) { }
 
   login(loginBody) {
-    this.headers.append('Authorization', 'Basic ' + btoa(loginBody.email + ':' + loginBody.password));
-    this.headers.append('Access-Control-Allow-Origin', 'localhost');
-    this.headers.append('Access-Control-Allow-Methods', 'POST, PUT, DELETE');
-    return this.httpClient.post(`${this.apiUrl}/login`, '', {headers: this.headers});
+    const headers = new HttpHeaders().append('Authorization', 'Basic ' + btoa(loginBody.email + ':' + loginBody.password));
+    return this.httpClient.post(`${this.apiUrl}/login`, '', {headers});
   }
 
   signup(signupBody) {
-    this.httpClient.post(`${this.apiUrl}/signup`, signupBody, {headers: this.headers});
+    this.httpClient.post(`${this.apiUrl}/signup`, signupBody);
   }
 }
