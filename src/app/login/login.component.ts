@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginService } from '../core/services/login/login.service';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { LoginService } from '../core/services/login/login.service';
 export class LoginComponent implements OnInit {
 
   loginForm;
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService) {
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
 
     this.loginForm = this.formBuilder.group({
       email: '',
@@ -24,8 +26,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm) {
     //TODO sanitize inputs.
-    this.loginService.login(loginForm).subscribe(result => {
-      console.log(result);
+    this.loginService.login(loginForm)(result => {
+      this.router.navigate(['/tasks']);
     });
   }
 
