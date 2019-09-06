@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm) {
-    //TODO sanitize inputs.
-    this.loginService.login(loginForm)(result => {
-      this.router.navigate(['/tasks']);
-    });
+    // TODO sanitize inputs.
+    this.loginService.login(loginForm);
   }
 
 }

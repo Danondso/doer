@@ -69,8 +69,6 @@ export class ListComponent implements OnInit {
     }
   }
 
-  
-
   completeTask(id: string) {
     this.deleteTask(id);
   }

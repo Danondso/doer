@@ -13,6 +13,8 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup/signup.component';
+import { AuthGuard } from './core/services/auth/auth.guard.service';
+import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { SignupComponent } from './login/signup/signup.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard, ErrorInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

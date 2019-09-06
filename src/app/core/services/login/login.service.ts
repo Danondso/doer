@@ -12,8 +12,11 @@ export class LoginService {
 
   apiUrl: string = environment.apiBaseUrl;
   private currentUserSubject: BehaviorSubject<User>;
-  private currentUser: Observable<User>;
-  constructor(private httpClient: HttpClient) { }
+  public currentUser: Observable<User>;
+  constructor(private httpClient: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+   }
 
   login(loginBody) {
     const headers = new HttpHeaders().append('Authorization', 'Basic ' + btoa(loginBody.email + ':' + loginBody.password));
@@ -22,6 +25,15 @@ export class LoginService {
         this.currentUserSubject.next(user);
         return user;
     });
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
   signup(signupBody) {
