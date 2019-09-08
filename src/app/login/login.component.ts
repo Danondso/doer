@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginService } from '../core/services/login/login.service';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm) {
     // TODO sanitize inputs.
-    this.loginService.login(loginForm);
+    this.loginService.login();
   }
 
 }

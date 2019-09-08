@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup/signup.component';
 import { AuthGuard } from './core/services/auth/auth.guard.service';
 import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ErrorInterceptorService } from './core/interceptors/error-interceptor.s
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    OAuthModule.forRoot(),
   ],
   providers: [AuthGuard, ErrorInterceptorService],
   bootstrap: [AppComponent]

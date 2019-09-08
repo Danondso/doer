@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from './core/services/theme/theme.service';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { LoginService } from './core/services/login/login.service';
+import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +12,18 @@ export class AppComponent implements OnInit {
   title = 'doer';
   isDarkTheme: Observable<boolean>;
 
-  constructor(private themeService: ThemeService, private loginService: LoginService, private router: Router) {}
+  constructor(private themeService: ThemeService, private oauthService: OAuthService) {
+
+    const authConfig: AuthConfig = {    };
+
+    this.oauthService.configure(authConfig);
+    this.oauthService.redirectUri = window.location.origin;
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+  }
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.isDarkTheme;
-    const currentUserValue = this.loginService.currentUserValue;
-    if (currentUserValue) {
-       this.router.navigate(['/tasks']);
-    }
-    this.router.navigate(['/login']);
   }
 
   toggleDarkTheme(isToggled: boolean) {
