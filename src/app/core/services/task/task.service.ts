@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TaskData } from '../../interfaces/task-data';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +12,23 @@ export class TaskService {
 
   apiUrl: string = environment.apiBaseUrl;
 
-  headers = new HttpHeaders()
-  .append('Access-Control-Allow-Origin', 'localhost')
-  .append('Access-Control-Allow-Methods', 'POST, PUT, DELETE');
+  constructor(private http: HttpClient, private oauthService: OAuthService) { }
 
-  constructor(private http: HttpClient) { }
 
   getTasks(email: string) {
-    return this.http.get<TaskData[]>(this.apiUrl + '/' + email + '/tasks');
+    const headers = new HttpHeaders({
+      authorization: 'Bearer ' + this.oauthService.getAccessToken(),
+      });
+    return this.http.get<TaskData[]>(this.apiUrl + '/' + email + '/tasks', {headers, });
   }
 
   createTask(task: TaskData) {
     console.log(task);
-    return this.http.post(this.apiUrl + '/task', task, {headers: this.headers});
+    return this.http.post(this.apiUrl + '/task', task);
   }
 
   updateTask(id: string, task: TaskData) {
-    return this.http.put(this.apiUrl + '/' + id, task, {headers: this.headers});
+    return this.http.put(this.apiUrl + '/' + id, task);
   }
 
   deleteTask(id: string): Observable<{}> {

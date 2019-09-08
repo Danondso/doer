@@ -3,6 +3,7 @@ import { TaskData } from '../core/interfaces/task-data';
 import { Observable } from 'rxjs';
 import { trigger, state, style, transition, animate, group } from '@angular/animations';
 import { TaskService } from '../core/services/task/task.service';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-list',
@@ -42,10 +43,10 @@ export class ListComponent implements OnInit {
 
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
   tasks: TaskData[];
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private oauthService: OAuthService) { }
 
   ngOnInit() {
-    this.taskService.getTasks('')
+    this.taskService.getTasks(this.oauthService.getIdentityClaims()['email'])
     .subscribe((payload: TaskData[]) => this.tasks = payload['data']);
   }
 

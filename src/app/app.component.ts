@@ -31,6 +31,14 @@ export class AppComponent implements OnInit {
     this.isDarkTheme = this.themeService.isDarkTheme;
   }
 
+  get givenName() {
+    const claims = this.oauthService.getIdentityClaims();
+    if (!claims) {
+      return null;
+    }
+    return claims['email'];
+  }
+
   toggleDarkTheme(isToggled: boolean) {
     this.themeService.setDarkTheme(isToggled);
   }

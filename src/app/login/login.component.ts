@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm) {
     // TODO sanitize inputs.
-    this.loginService.login();
+    this.loginService.login(loginForm.email, loginForm.password);
   }
 
 }
