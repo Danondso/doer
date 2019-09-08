@@ -12,8 +12,7 @@ export class LoginService {
   constructor(private oauthService: OAuthService) { }
 
   login() {
-    console.log('ARE WE FEELING IT NOW MR KRABS???');
-    this.oauthService.initImplicitFlow();
+    this.oauthService.initCodeFlow();
   }
 
   logout() {

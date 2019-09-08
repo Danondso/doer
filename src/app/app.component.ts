@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeService } from './core/services/theme/theme.service';
 import { Observable } from 'rxjs';
 import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
+import { environment } from '../environments/environment';
+
+const authCodeConfig: AuthConfig = {
+  issuer: environment.issuer,
+  redirectUri: environment.redirectUri,
+  clientId: environment.clientId,
+  responseType: environment.responseType,
+  showDebugInformation: environment.showDebugInformation,
+};
 
 @Component({
   selector: 'app-root',
@@ -13,11 +22,7 @@ export class AppComponent implements OnInit {
   isDarkTheme: Observable<boolean>;
 
   constructor(private themeService: ThemeService, private oauthService: OAuthService) {
-
-    const authConfig: AuthConfig = {    };
-
-    this.oauthService.configure(authConfig);
-    this.oauthService.redirectUri = window.location.origin;
+    this.oauthService.configure(authCodeConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
