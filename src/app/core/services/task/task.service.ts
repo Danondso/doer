@@ -14,12 +14,8 @@ export class TaskService {
 
   constructor(private http: HttpClient, private oauthService: OAuthService) { }
 
-
   getTasks(email: string) {
-    const headers = new HttpHeaders({
-      authorization: 'Bearer ' + this.oauthService.getAccessToken(),
-      });
-    return this.http.get<TaskData[]>(this.apiUrl + '/' + email + '/tasks', {headers, });
+    return this.http.get<TaskData[]>(this.apiUrl + '/' + email + '/tasks');
   }
 
   createTask(task: TaskData) {

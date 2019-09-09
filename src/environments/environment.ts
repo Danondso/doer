@@ -8,8 +8,9 @@ export const environment = {
   issuer: '',
   redirectUri: window.location.origin,
   clientId: '',
-  responseType: 'code',
+  responseType: 'access_token',
   showDebugInformation: true,
+  idpBaseUrl: ''
 };
 
 /*

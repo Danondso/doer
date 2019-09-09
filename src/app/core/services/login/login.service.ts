@@ -12,12 +12,12 @@ export class LoginService {
 
   constructor(private oauthService: OAuthService) {
     this.authClient = new OktaAuth({
-      url: '',
+      url: environment.idpBaseUrl,
       issuer: 'default'
     });
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string): Promise<boolean> {
     return this.oauthService.createAndSaveNonce().then(nonce => {
       return this.authClient
         .signIn({

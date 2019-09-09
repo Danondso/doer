@@ -10,11 +10,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateTaskComponent } from './list/create-task/create-task.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup/signup.component';
 import { AuthGuard } from './core/services/auth/guard/auth.guard.service';
 import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
+import { OauthInterceptorService } from './core/services/auth/interceptor/oauth.interceptor.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
@@ -45,7 +46,12 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     HttpClientModule,
     OAuthModule.forRoot(),
   ],
-  providers: [AuthGuard, ErrorInterceptorService],
+  providers: [AuthGuard, ErrorInterceptorService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: OauthInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
