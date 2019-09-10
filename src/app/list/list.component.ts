@@ -52,7 +52,7 @@ export class ListComponent implements OnInit {
 
   addTask(event: TaskData) {
     console.log('SUBMITTED EVENT', event);
-    event.email = '';
+    event.email = this.oauthService.getIdentityClaims()['email'];
     this.taskService.createTask(event).subscribe((response: TaskData) => {
       this.tasks.push(response['data']);
     });
