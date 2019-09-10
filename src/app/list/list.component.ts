@@ -58,6 +58,21 @@ export class ListComponent implements OnInit {
     });
   }
 
+  updateTask(event: TaskData) {
+    //todo make this not needlessly iterate through the tasks.
+    event.canEdit = !event.canEdit;
+    for (const index of this.tasks) {
+      if (index.id === event.id) {
+          if (index.project !== event.project || index.text !== event.project) {
+              console.log('UPDATING TASK');
+              this.taskService.updateTask(event.id, event).subscribe(() => {
+                this.tasks.splice(this.tasks.indexOf(index), 1);
+              });
+          }
+      }
+    }
+  }
+
   deleteTask(id: string) {
     for (const index of this.tasks) {
       if (index.id === id) {

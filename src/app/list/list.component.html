@@ -26,7 +26,7 @@
         [disabled]="task.canEdit">
         <mat-icon [ngClass]="{ 'disabled' : task.canEdit }" class="material-icons">check</mat-icon>
       </button>
-      <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="task.canEdit = !task.canEdit">
+      <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="this.updateTask(task)">
         <i class="material-icons">edit</i>
       </button>
       <button mat-icon-button class="mat-primary task-buttons" type="submit" (click)="this.deleteTask(task.id)">
