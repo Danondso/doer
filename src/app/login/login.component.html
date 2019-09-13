@@ -1,10 +1,9 @@
 <section>
-
   <mat-card class="card-container">
     <mat-tab-group>
       <mat-tab label="Login">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-          <mat-card-content class="task-description">
+          <mat-card-content class="login-description">
             <mat-form-field>
               <input matInput placeholder="Username/Email" type="text" formControlName="email">
             </mat-form-field>
@@ -13,7 +12,7 @@
               <input required matInput placeholder="Password" type="password" formControlName="password">
             </mat-form-field>
           </mat-card-content>
-          <mat-card-actions>
+          <mat-card-actions class="login-button">
             <button mat-raised-button class="mat-primary" mat-button type="submit">LOGIN</button>
           </mat-card-actions>
         </form>

@@ -59,7 +59,7 @@ export class ListComponent implements OnInit {
   }
 
   updateTask(event: TaskData) {
-    //todo make this not needlessly iterate through the tasks.
+    // todo make this not needlessly iterate through the tasks.
     event.canEdit = !event.canEdit;
     for (const index of this.tasks) {
       if (index.id === event.id) {
