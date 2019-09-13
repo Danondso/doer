@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
   isDarkTheme: Observable<boolean>;
 
   tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
-  tasks: TaskData[];
+  tasks: TaskData[] = [];
   constructor(private taskService: TaskService, private oauthService: OAuthService) { }
 
   ngOnInit() {
