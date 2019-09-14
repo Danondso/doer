@@ -2,7 +2,7 @@
   <mat-card class="card-container">
     <mat-tab-group>
       <mat-tab label="Login">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
           <mat-card-content class="login-description">
             <mat-form-field>
               <input matInput placeholder="Username/Email" type="text" formControlName="email">

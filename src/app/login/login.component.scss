@@ -4,16 +4,18 @@
   $accent: map-get($theme, accent);
   $background: map-get($theme, background);
   $background-color: mat-color($background, card);
-
-
   .card-container {
     background: mat-color($accent);
     color: $background-color;
     @include centering;
     @include responsive-text;
     max-width: 26vw;
-    margin-top: 48vh;
+    margin-top: 33vh;
     margin-bottom: 1.5vh;
+    
+    .login-form {
+      overflow: hidden;
+    }
 
     .login-button {
       margin-left: .1vw;

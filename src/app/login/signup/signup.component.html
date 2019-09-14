@@ -1,5 +1,5 @@
 <section>
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)" class="signup-form">
     <mat-card-content class="task-description">
       <mat-form-field>
         <input matInput placeholder="First Name" type="text" formControlName="firstName">
@@ -14,9 +14,9 @@
       </mat-form-field>
       <section></section>
       <mat-form-field>
-            <input matInput placeholder="Handle" type="text" formControlName="handle">
-          </mat-form-field>
-          <section></section>
+        <input matInput placeholder="Handle" type="text" formControlName="handle">
+      </mat-form-field>
+      <section></section>
       <mat-form-field>
         <input required matInput placeholder="Password" type="password" formControlName="password">
       </mat-form-field>
