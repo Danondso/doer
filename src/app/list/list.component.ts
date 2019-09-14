@@ -41,7 +41,7 @@ export class ListComponent implements OnInit {
   canEdit: boolean;
   isDarkTheme: Observable<boolean>;
 
-  tasksTitle = 'Do good.'; // TODO have this cycle through different go-getem phrases?
+  tasksTitle = 'If you cannot do something great, do good things repeatedly';
   tasks: TaskData[] = [];
   constructor(private taskService: TaskService, private oauthService: OAuthService) { }
 
