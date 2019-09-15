@@ -6,7 +6,8 @@
 // Default theme
 $doer-primary: mat-palette($mat-blue);
 $doer-accent: mat-palette($mat-red, A200, A100, A400);
-$doer-theme: mat-light-theme($doer-primary, $doer-accent);
+$doer-warn: mat-palette($mat-yellow);
+$doer-theme: mat-light-theme($doer-primary, $doer-accent, $doer-warn);
 
 @include angular-material-theme($doer-theme);
 @include component-themes($doer-theme);

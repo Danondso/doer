@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm;
+  showInvalidLogin;
   constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
 
     this.loginForm = this.formBuilder.group({
@@ -24,13 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm) {
-    // TODO sanitize inputs.
+    this.showInvalidLogin = false;
     this.loginService.login(loginForm.email, loginForm.password).then(result => {
+      console.log('Back again');
       if (result) {
         this.router.navigate(['/tasks']);
       }
     }).catch(err => {
-      // TODO setup a toast message or something saying an error occurred.
+        this.showInvalidLogin = true;
     });
   }
 

@@ -4,8 +4,9 @@
       <mat-tab label="Login">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
           <mat-card-content class="login-description">
+              <p class="login-error-message" *ngIf="this.showInvalidLogin">Email and/or password was incorrect, please try again.</p>
             <mat-form-field>
-              <input matInput placeholder="Username/Email" type="text" formControlName="email">
+              <input required matInput placeholder="Email" type="text" formControlName="email">
             </mat-form-field>
             <section></section>
             <mat-form-field>
