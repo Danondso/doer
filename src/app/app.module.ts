@@ -14,7 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup/signup.component';
 import { AuthGuard } from './core/services/auth/guard/auth.guard.service';
-import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
+import { ErrorInterceptorService } from './core/error/interceptor/error-interceptor.service';
 import { OauthInterceptorService } from './core/services/auth/interceptor/oauth.interceptor.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
