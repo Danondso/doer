@@ -2,6 +2,7 @@
 
 @mixin login-theme($theme) {
   $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
   $background: map-get($theme, background);
   $background-color: mat-color($background, card);
 
@@ -21,6 +22,10 @@
 
     .login-description {
       @include responsive-text;
+    }
+
+    .login-error-message {
+      color: mat-color($warn);
     }
   }
 }
