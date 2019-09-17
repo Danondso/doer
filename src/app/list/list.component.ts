@@ -68,6 +68,7 @@ export class ListComponent implements OnInit {
               this.taskService.updateTask(event.id, event).subscribe(() => {
                 this.tasks.splice(this.tasks.indexOf(index), 1);
               });
+              break;
           }
       }
     }
