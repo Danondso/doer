@@ -51,7 +51,7 @@ export class ListComponent implements OnInit {
   }
 
   addTask(event: TaskData) {
-    console.log('SUBMITTED EVENT', event);
+    console.log('Creating task', event);
     event.email = this.oauthService.getIdentityClaims()['email'];
     this.taskService.createTask(event).subscribe((response: TaskData) => {
       this.tasks.push(response['data']);
@@ -59,25 +59,14 @@ export class ListComponent implements OnInit {
   }
 
   updateTask(event: TaskData) {
-    // todo make this not needlessly iterate through the tasks.
-    event.canEdit = !event.canEdit;
-    for (const index of this.tasks) {
-      if (index.id === event.id) {
-          if (index.project !== event.project || index.text !== event.project) {
-              console.log('UPDATING TASK');
-              this.taskService.updateTask(event.id, event).subscribe(() => {
-                this.tasks.splice(this.tasks.indexOf(index), 1);
-              });
-              break;
-          }
-      }
+      event.canEdit = !event.canEdit;
+      this.taskService.updateTask(event.id, event).subscribe();
     }
-  }
 
   deleteTask(id: string) {
     for (const index of this.tasks) {
       if (index.id === id) {
-        console.log('DELETING TASK WITH ID ', id);
+        console.log('Deleting task with id:', id);
         this.taskService.deleteTask(id).subscribe(() => {
           this.tasks.splice(this.tasks.indexOf(index), 1);
         });
