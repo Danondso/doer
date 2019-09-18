@@ -18,6 +18,9 @@ import { ErrorInterceptorService } from './core/error/interceptor/error-intercep
 import { OauthInterceptorService } from './core/services/auth/interceptor/oauth.interceptor.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
+
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     MatInputModule,
     MatSlideToggleModule,
     MatTabsModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

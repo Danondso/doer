@@ -1,6 +1,6 @@
 <section class="task-list-content" [ngClass]="{ 'dark-theme': isDarkTheme | async }">
   <mat-card class="card-container" *ngIf="this.tasks.length === 0">
-    <p>You've completed all the things!</p>
+    <p>{{emptyTasksMessage}}</p>
   </mat-card>
   <mat-card *ngFor="let task of tasks" class="card-container">
     <span class="created-time">
