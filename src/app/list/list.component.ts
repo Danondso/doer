@@ -50,7 +50,8 @@ export class ListComponent implements OnInit {
     this.taskService.getTasks(this.oauthService.getIdentityClaims()['email'])
     .subscribe((payload: TaskData[]) => {this.tasks = payload['data']; },
      err => {
-      this.snackBar.open('Error occurred while retrieving tasks.', 'Dismiss');
+       console.log(err);
+       this.snackBar.open('Error occurred while retrieving tasks.', 'Dismiss');
     });
   }
 
@@ -59,12 +60,17 @@ export class ListComponent implements OnInit {
     event.email = this.oauthService.getIdentityClaims()['email'];
     this.taskService.createTask(event).subscribe((response: TaskData) => {
       this.tasks.push(response['data']);
-    }, err  => { this.snackBar.open('Error occurred while creating task.', 'Dismiss'); });
+    }, err  => {
+      console.log(err);
+      this.snackBar.open('Error occurred while creating task.', 'Dismiss'); });
   }
 
   updateTask(event: TaskData) {
       event.canEdit = !event.canEdit;
-      this.taskService.updateTask(event.id, event).subscribe();
+      this.taskService.updateTask(event.id, event).subscribe(() => {},
+      err => {
+        console.log(err);
+        this.snackBar.open('Error occurred when attempting to update task. ', 'Dismiss');});
     }
 
   deleteTask(id: string) {
@@ -73,7 +79,9 @@ export class ListComponent implements OnInit {
         console.log('Deleting task with id:', id);
         this.taskService.deleteTask(id).subscribe(() => {
           this.tasks.splice(this.tasks.indexOf(index), 1);
-        }, err  => { this.snackBar.open('Error occurred while deleting task.', 'Dismiss'); });
+        }, err  => {
+          console.log(err);
+          this.snackBar.open('Error occurred while deleting task.', 'Dismiss'); });
         break;
       }
     }

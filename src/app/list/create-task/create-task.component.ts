@@ -59,6 +59,7 @@ export class CreateTaskComponent {
     };
     this.newTask.emit(task);
     this.taskCreateForm.reset();
-  }
+    this.showTaskCreateForm = false;
+    }
 
 }
