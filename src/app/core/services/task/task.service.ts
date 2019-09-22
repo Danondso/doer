@@ -12,10 +12,10 @@ export class TaskService {
 
   apiUrl: string = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient, private oauthService: OAuthService) { }
+  constructor(private http: HttpClient) { }
 
   getTasks(email: string) {
-    return this.http.get<TaskData[]>(this.apiUrl + '/' + email + '/tasks');
+    return this.http.get<TaskData[]>(`${this.apiUrl}/${email}/tasks`);
   }
 
   createTask(task: TaskData) {

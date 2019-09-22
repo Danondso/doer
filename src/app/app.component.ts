@@ -3,6 +3,7 @@ import { ThemeService } from './core/services/theme/theme.service';
 import { Observable } from 'rxjs';
 import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
 import { environment } from '../environments/environment';
+import { LoginService } from './core/services/login/login.service';
 
 const authCodeConfig: AuthConfig = {
   issuer: environment.issuer,
@@ -20,8 +21,9 @@ const authCodeConfig: AuthConfig = {
 export class AppComponent implements OnInit {
   title = 'doer';
   isDarkTheme: Observable<boolean>;
+  isLoggedIn: boolean;
 
-  constructor(private themeService: ThemeService, private oauthService: OAuthService) {
+  constructor(private themeService: ThemeService, private oauthService: OAuthService, private loginService: LoginService) {
     this.oauthService.configure(authCodeConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
@@ -29,18 +31,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.isDarkTheme;
-  }
-
-  get givenName() {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) {
-      return null;
-    }
-    return claims['email'];
+    this.isLoggedIn = this.oauthService.hasValidAccessToken();
   }
 
   toggleDarkTheme(isToggled: boolean) {
     this.themeService.setDarkTheme(isToggled);
   }
 
+  logoutUser() {
+    this.loginService.logout();
+  }
 }

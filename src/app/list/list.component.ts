@@ -67,6 +67,7 @@ export class ListComponent implements OnInit {
 
   updateTask(event: TaskData) {
       event.canEdit = !event.canEdit;
+      // figure out how to not double update. 
       this.taskService.updateTask(event.id, event).subscribe(() => {},
       err => {
         console.log(err);
