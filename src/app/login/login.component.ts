@@ -23,7 +23,6 @@ export class LoginComponent {
   onSubmit(loginForm) {
     this.showInvalidLogin = false;
     this.loginService.login(loginForm.email, loginForm.password).then(result => {
-      console.log('Back again');
       if (result) {
         this.router.navigate(['/tasks']);
       }
