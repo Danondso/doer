@@ -15,18 +15,18 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getTasks(email: string) {
-    return this.http.get<TaskData[]>(`${this.apiUrl}/${email}/tasks`);
+    return this.http.get<TaskData[]>(`${this.apiUrl}/tasks/${email}`);
   }
 
   createTask(task: TaskData) {
-    return this.http.post(`${this.apiUrl}/task/`, task);
+    return this.http.post(`${this.apiUrl}/tasks/`, task);
   }
 
   updateTask(id: string, task: TaskData) {
-    return this.http.put(`${this.apiUrl}/task/${id}`, task);
+    return this.http.put(`${this.apiUrl}/tasks/${id}`, task);
   }
 
   deleteTask(id: string): Observable<{}> {
-    return this.http.delete(`${this.apiUrl}/task/${id}`);
+    return this.http.delete(`${this.apiUrl}/tasks/${id}`);
   }
 }
