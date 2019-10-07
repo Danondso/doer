@@ -31,6 +31,7 @@ export class LoginService {
                 clientId: this.oauthService.clientId,
                 responseType: ['id_token', 'token'],
                 sessionToken: response.sessionToken,
+                scopes: ['openid', 'email', 'tasks:create', 'tasks:delete', 'tasks:update', 'tasks:read'],
                 nonce,
                 redirectUri: environment.tokenRedirectUri
               })
@@ -44,6 +45,8 @@ export class LoginService {
                   customHashFragment: keyValuePair,
                   disableOAuth2StateCheck: true
                 });
+              }).catch(error => {
+                console.log('Error occurred while logging in', error);
               });
           } else {
             return Promise.reject('Unable to handle ' + response.status + ' status');
