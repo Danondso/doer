@@ -32,6 +32,7 @@ export class LoginService {
                 responseType: ['id_token', 'token'],
                 sessionToken: response.sessionToken,
                 nonce,
+                scopes: environment.scopes,
                 redirectUri: environment.tokenRedirectUri
               })
               .then(tokens => {
