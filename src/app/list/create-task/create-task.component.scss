@@ -29,8 +29,12 @@
         color: $background-color;
       }
 
-      .project-name-input {
-        padding: 10px 10px 10px 10px;
+      .task-description-input {
+        padding-left: 15px;
+      }
+
+      .create-task-actions {
+        margin-left: 15px;
       }
     }
   }
