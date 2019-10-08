@@ -1,26 +1,28 @@
 <section>
-  <mat-card class="card-container">
-    <mat-tab-group>
-      <mat-tab label="Login">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
-          <mat-card-content class="login-description">
-              <p class="login-error-message" *ngIf="this.showInvalidLogin">Email and/or password was incorrect, please try again.</p>
-            <mat-form-field>
-              <input required matInput placeholder="Email" type="text" formControlName="email">
-            </mat-form-field>
-            <section></section>
-            <mat-form-field>
-              <input required matInput placeholder="Password" type="password" formControlName="password">
-            </mat-form-field>
-          </mat-card-content>
-          <mat-card-actions class="login-button">
-            <button mat-raised-button class="mat-primary" mat-button type="submit">LOGIN</button>
-          </mat-card-actions>
-        </form>
-      </mat-tab>
-      <mat-tab label="Signup">
-        <app-signup></app-signup>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
+<mat-card class="card-container">
+    <p class="app-title">{{appTitle}}</p>
+  <mat-tab-group>
+    <mat-tab label="Login">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="login-form">
+        <mat-card-content class="login-description">
+          <p class="login-error-message" *ngIf="this.showInvalidLogin">Email and/or password was incorrect, please try
+            again.</p>
+          <mat-form-field>
+            <input required matInput placeholder="Email" type="text" formControlName="email">
+          </mat-form-field>
+          <section></section>
+          <mat-form-field>
+            <input required matInput placeholder="Password" type="password" formControlName="password">
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="login-button">
+          <button mat-raised-button class="mat-primary" mat-button type="submit">LOGIN</button>
+        </mat-card-actions>
+      </form>
+    </mat-tab>
+    <mat-tab label="Signup" *ngIf="this.signUpToggle">
+      <app-signup></app-signup>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
 </section>
