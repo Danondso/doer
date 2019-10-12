@@ -4,12 +4,15 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3000/api/v1',
+  apiBaseUrl: '',
   issuer: '',
   redirectUri: window.location.origin,
   clientId: '',
   responseType: 'access_token',
   showDebugInformation: true,
+  tokenRedirectUri: '',
+  scopes: '',
+  signUpToggle: false,
   idpBaseUrl: ''
 };
 
