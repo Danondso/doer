@@ -31,7 +31,6 @@ export class LoginService {
                 clientId: this.oauthService.clientId,
                 responseType: ['id_token', 'token'],
                 sessionToken: response.sessionToken,
-                scopes: ['openid', 'email', 'tasks:create', 'tasks:delete', 'tasks:update', 'tasks:read'],
                 nonce,
                 scopes: environment.scopes,
                 redirectUri: environment.tokenRedirectUri
