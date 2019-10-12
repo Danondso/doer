@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
   canEdit: boolean;
   isDarkTheme: Observable<boolean>;
 
-  emptyTasksMessage = 'If you cannot do something great, do good things repeatedly';
+  emptyTasksMessage = 'If you cannot do something great, do good things repeatedly.';
   tasks: TaskData[] = [];
   constructor(private taskService: TaskService, private oauthService: OAuthService, private snackBar: MatSnackBar) { }
 

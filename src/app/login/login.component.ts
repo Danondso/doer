@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginService } from '../core/services/login/login.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   loginForm;
+  appTitle = 'DOER';
   showInvalidLogin;
+  signUpToggle = environment.signUpToggle;
   constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
 
     this.loginForm = this.formBuilder.group({

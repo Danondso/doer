@@ -33,6 +33,7 @@ export class LoginService {
                 sessionToken: response.sessionToken,
                 scopes: ['openid', 'email', 'tasks:create', 'tasks:delete', 'tasks:update', 'tasks:read'],
                 nonce,
+                scopes: environment.scopes,
                 redirectUri: environment.tokenRedirectUri
               })
               .then(tokens => {
