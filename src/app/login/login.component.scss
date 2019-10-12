@@ -5,7 +5,7 @@
   $warn: map-get($theme, warn);
   $background: map-get($theme, background);
   $background-color: mat-color($background, card);
-  
+
 
   .card-container {
     background: mat-color($accent);
@@ -19,22 +19,26 @@
     .app-title {
       text-align: left;
       font-size: 2vh;
-    }  
-    
+    }
+
     .login-form {
       overflow: hidden;
-    }
 
-    .login-button {
-      margin-left: .1vw;
-    }
+      .login-content {
+        @include responsive-text;
 
-    .login-description {
-      @include responsive-text;
-    }
+        .login-error-message {
+          color: mat-color($warn);
+        }
 
-    .login-error-message {
-      color: mat-color($warn);
+        .login-button {
+          margin-left: .1vw;
+        }
+
+        .login-input {
+          width: 50%;
+        }
+      }
     }
   }
 }
