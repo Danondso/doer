@@ -1,3 +1,15 @@
+
+$break-small-min: 360px;
+$break-small-max: 420px;
+$card-container-width: 26vw;
+
+@mixin card-container() {
+  @include centering;
+  @include responsive-text;
+  max-width: $card-container-width;
+  margin-bottom: 1.5vh;
+}
+
 @mixin responsive-text() {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -11,14 +11,17 @@
     margin-top: 1vw;
 
     .card-container {
+      @include card-container;
       background: mat-color($accent);
       color: $background-color;
-      @include centering;
-      @include responsive-text;
-      max-width: 40vw;
-      margin-bottom: 1.5vh;
 
-      .task-buttons {
+      @media screen and (max-width: $break-small-min),
+      screen and (max-width: $break-small-max) {
+        max-width: 60vw;
+        margin-top: 3vh;
+      }
+
+      ̦ .task-buttons {
         font-size: 3vw;
         float: left;
         color: $background-color;

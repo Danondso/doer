@@ -6,15 +6,16 @@
   $background: map-get($theme, background);
   $background-color: mat-color($background, card);
 
-
   .card-container {
+    @include card-container;
     background: mat-color($accent);
     color: $background-color;
-    @include centering;
-    @include responsive-text;
-    max-width: 26vw;
     margin-top: 33vh;
-    margin-bottom: 1.5vh;
+
+    @media screen and (max-width: $break-small-min),
+    screen and (max-width: $break-small-max) {
+      max-width: 60vw;
+    }
 
     .app-title {
       text-align: left;
@@ -31,13 +32,13 @@
           color: mat-color($warn);
         }
 
-        .login-button {
-          margin-left: .1vw;
-        }
-
         .login-input {
-          width: 50%;
+          width: 100%;
         }
+      }
+
+      .login-button {
+        margin-left: .1vw;
       }
     }
   }
