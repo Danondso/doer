@@ -21,7 +21,7 @@
         margin-top: 3vh;
       }
 
-      ̦ .task-buttons {
+      .task-buttons {
         font-size: 3vw;
         float: left;
         color: $background-color;
@@ -33,12 +33,21 @@
 
       .tasks-completed-message {
         text-align: center;
-        font-size: 1.5vw;
+        font-size: 1vw;
+
+        @media screen and (max-width: $break-small-min),
+        screen and (max-width: $break-small-max) {
+          font-size: 2vw;
+        }
       }
 
-      .project-name,
+      .project-name {
+        @include responsive-text;
+      }
+
       .task-description {
         @include responsive-text;
+        margin-left: 1.2vw;
       }
 
       .task-edit-field {
