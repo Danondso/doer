@@ -11,7 +11,7 @@ You'll need some things running in order to use the application:
 - [Doer back-end](https://github.com/Danondso/react-todo-backend)
 - [Okta Dev Account](https://developer.okta.com/signup/)
 - Okta SPA app clientID
-- Okta Authorization servier with scopes configured (see example config setup)
+- Okta Authorization server with scopes configured (see example config setup)
 
 Base Config Example Setup:
 
