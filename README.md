@@ -1,6 +1,44 @@
 # Doer
 
+Todo-list application written in angular.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+
+## Setting up environment
+
+You'll need some things running in order to use the application:
+
+- [Doer back-end](https://github.com/Danondso/react-todo-backend)
+- [Okta Dev Account](https://developer.okta.com/signup/)
+- Okta SPA app clientID
+- Okta Authorization servier with scopes configured (see example config setup)
+
+Base Config Example Setup:
+
+```typescript
+
+export const environment = {
+  production: false,
+  apiBaseUrl: 'http://localhost:3000/api/v1', //doer backend base url
+  issuer: '', //okta issuer url
+  redirectUri: window.location.origin,
+  clientId: '', //okta SPA client id
+  responseType: 'access_token',
+  showDebugInformation: true,
+  idpBaseUrl: '', //okta authorization server base url
+  tokenRedirectUri: 'http://localhost:4200/tasks', //token redirect url
+  scopes: [ // doer backend scopes needed
+    'tasks:update',
+    'tasks:create',
+    'tasks:delete',
+    'tasks:read',
+    'openid',
+    'email'
+  ],
+  signUpToggle: false, //okta dev accounts don't allow for custom signup screens, so the signup tab is disabled. 
+};
+
+```
 
 ## Development server
 
