@@ -11,12 +11,15 @@
     margin-top: 1vw;
 
     .card-container {
+      @include card-container;
       background: mat-color($accent);
       color: $background-color;
-      @include centering;
-      @include responsive-text;
-      max-width: 40vw;
-      margin-bottom: 1.5vh;
+
+      @media screen and (max-width: $break-small-min),
+      screen and (max-width: $break-small-max) {
+        max-width: 60vw;
+        margin-top: 3vh;
+      }
 
       .task-buttons {
         font-size: 3vw;
@@ -30,12 +33,21 @@
 
       .tasks-completed-message {
         text-align: center;
-        font-size: 1.5vw;
+        font-size: 1vw;
+
+        @media screen and (max-width: $break-small-min),
+        screen and (max-width: $break-small-max) {
+          font-size: 2vw;
+        }
       }
 
-      .project-name,
+      .project-name {
+        @include responsive-text;
+      }
+
       .task-description {
         @include responsive-text;
+        margin-left: 1.2vw;
       }
 
       .task-edit-field {

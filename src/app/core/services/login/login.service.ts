@@ -45,6 +45,8 @@ export class LoginService {
                   customHashFragment: keyValuePair,
                   disableOAuth2StateCheck: true
                 });
+              }).catch(error => {
+                console.log('Error occurred while logging in', error);
               });
           } else {
             return Promise.reject('Unable to handle ' + response.status + ' status');

@@ -16,12 +16,14 @@
     }
 
     .card-container {
-      @include centering;
-      @include responsive-text;
-      max-width: 40vw;
-      margin-bottom: 1.5vh;
+      @include card-container;
       background: mat-color($accent);
       color: $background-color;
+
+      @media screen and (max-width: $break-small-min),
+      screen and (max-width: $break-small-max) {
+        max-width: 60vw;
+      }
 
       .project-name,
       .task-description {
