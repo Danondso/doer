@@ -27,7 +27,7 @@
     "angular-oauth2-oidc": "^8.0.4",
     "core-js": "^3.2.1",
     "guid-typescript": "^1.0.9",
-    "npm": "^6.12.0",
+    "npm": "^6.13.4",
     "rxjs": "~6.5.3",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
